@@ -12,7 +12,6 @@ FILE* yyin;
 void yyerror(const char*s);
 %}
 %token NUMBER
-%token ID
 %token ADD SUB MUL DIV LPAREN RPAREN
 %left LKO
 %left ADD SUB
@@ -37,9 +36,6 @@ expr : expr ADD expr {$$=(char*)malloc(200*sizeof(char)); strcpy($$,$1);
      | LPAREN expr RPAREN {$$=(char*)malloc(200*sizeof(char));strcpy($$,$2);}
      | NUMBER   {$$ = (char*)malloc(200*sizeof(char)); strcpy($$,$1);
                  strcat($$," ");}
-     | ID   {$$=(char*)malloc(200*sizeof(char));
-             strcpy($$,$1);strcat($$," ");}
-
 
 %%
 
