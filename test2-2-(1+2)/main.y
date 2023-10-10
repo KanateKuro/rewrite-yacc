@@ -32,8 +32,6 @@ expr  :   expr ADD expr {$$=$1+$3;}
       ;
 %%
 
-
-
 int yylex()
 {
    int t;
